@@ -1,0 +1,69 @@
+$ButtonBlue: #2445B2;
+$ButtonBlueHover: #233f9c;
+$AddButtonLight: #E3E6EB;
+$AddButtonLightHover: #c7cace;
+
+
+.AddButton{
+    border-width: 0;
+    cursor: pointer;
+
+    &_size_big{
+        width: 62px;
+        height: 62px;
+        border-radius: 9px;
+        img{
+            width: 33px;
+            height: 33px;
+        }
+    }
+
+    &_size_small{
+        width: 39px;
+        height: 39px;
+        border-radius: 10px;
+        position: relative;
+
+        img{
+            //centering img inside a button
+            position:absolute;
+            top: 50%;
+            left:50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            width: 24px;
+            height: 24px;
+        }
+
+    }
+
+    &_color_blue{
+        background-color: $ButtonBlue;
+
+       
+    
+        
+
+        &:hover{        
+            background-color: $ButtonBlueHover
+        }
+       
+    }
+
+    &_color_white{
+        background-color: $AddButtonLight;
+
+       
+        img{
+            filter:brightness(0.4);
+           }
+       
+
+        &:hover{
+            background-color: $AddButtonLightHover
+        }
+
+    }
+}

@@ -1,0 +1,53 @@
+
+$ButtonBlue: #2445B2;
+$ButtonBlueHover: #233f9c;
+$ButtonWhite: white;
+$ButtonWhiteHover: rgb(247, 247, 247);
+
+.Button{
+   
+    border-radius: 7px;
+    border: 1px solid; 
+    
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+
+    &_size_big{     
+        max-width: 312px;
+        height: 40px;
+        width: 100%;
+    } 
+     &_size_small{
+        height: 36px;
+        max-width: 117px;
+
+        width: 100%;
+    }
+    
+
+    &_color_primary{
+        background-color: $ButtonBlue;
+        color: $ButtonWhite;
+        border-color: $ButtonBlue;
+
+        &:hover{
+            background-color: $ButtonBlueHover;
+            color: $ButtonWhiteHover;
+            cursor: pointer;
+        };
+    }
+
+    &_color_inverted{
+        background-color: $ButtonWhite;
+        color: $ButtonBlue;
+        border-width: 2px;
+
+        &:hover{
+            color: $ButtonBlueHover;
+            border-color: $ButtonBlueHover
+        }
+    };
+
+}
+
