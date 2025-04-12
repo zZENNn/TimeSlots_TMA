@@ -1,4 +1,3 @@
-import React from 'react'
 import back_arrow from './BackButton.svg'
 import './BackButton.scss'
 

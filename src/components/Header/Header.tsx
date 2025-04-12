@@ -1,4 +1,4 @@
-import React from 'react'
+
 import BackButton from '../BackButton/BackButton'
 import Heading from '../Heading/Heading'
 import './Header.scss'

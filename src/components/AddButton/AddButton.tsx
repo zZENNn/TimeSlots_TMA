@@ -1,5 +1,5 @@
 import React from 'react'
-import icon from './plus_icon.svg'
+//import icon from './plus_icon.svg'
 
 export type AddButtonProps = {
    color: 'blue' | 'white'

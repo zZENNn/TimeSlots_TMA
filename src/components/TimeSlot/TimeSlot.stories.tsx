@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react"
-import TimeSlot, {TimeSlotProps} from "./TimeSlot";
+import TimeSlot from "./TimeSlot";
 import './TimeSlot.scss';
 //import icon from './plus_icon_white.svg'
 

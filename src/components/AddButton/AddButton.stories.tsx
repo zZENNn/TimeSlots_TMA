@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react"
-import AddButton, {AddButtonProps} from "./AddButton";
+import AddButton from "./AddButton";
 import './AddButton.scss';
 import icon from './plus_icon_white.svg'
 
