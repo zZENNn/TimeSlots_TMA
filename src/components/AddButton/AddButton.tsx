@@ -1,4 +1,4 @@
-import React from 'react'
+
 import icon from './plus_icon_white.svg'
 import './AddButton.scss'
 
