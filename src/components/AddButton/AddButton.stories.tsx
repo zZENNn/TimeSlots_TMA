@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "@storybook/react"
 import AddButton from "./AddButton";
 import './AddButton.scss';
-import icon from './plus_icon_white.svg'
+//import icon from './plus_icon_white.svg'
 
 const meta: Meta<typeof AddButton> = {
     title: 'Компоненты/AddButton',
@@ -17,7 +17,7 @@ export const AddButtonMain: Story = {
     args: {
         color: 'blue',
         size: 'big',
-        children: <img src={icon}></img>
+        
     }
 }
 

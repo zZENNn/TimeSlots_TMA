@@ -1,0 +1,19 @@
+.Search{
+    fieldset{
+        background-color: white;
+        min-width: 100px;
+    }
+    
+ 
+}
+
+.SearchAndAdd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.AddButton{
+    margin-left: 10px;
+}

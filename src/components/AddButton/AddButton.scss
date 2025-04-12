@@ -7,10 +7,11 @@ $AddButtonLightHover: #c7cace;
 .AddButton{
     border-width: 0;
     cursor: pointer;
+   
 
     &_size_big{
-        width: 62px;
-        height: 62px;
+        min-width: 62px;
+        min-height: 62px;
         border-radius: 9px;
         img{
             width: 33px;
