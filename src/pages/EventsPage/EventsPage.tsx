@@ -1,15 +1,14 @@
-
-//import React from 'react'
 import './EventsPage.scss'
 import Header from '../../components/Header/Header'
-import { Card, TextField } from '@mui/material'
+import { Card, Input } from '@mui/material'
 import AddButton from '../../components/AddButton/AddButton'
+import search_icon from '../../assets/search_icon.svg'
 export default function EventsPage() {
   return (
     <>
         <Header headingText='События'/>
         <div className="SearchAndAdd">
-          <TextField className='Search' fullWidth/><AddButton color='blue' size='big'/>
+          <Input className='Search' fullWidth disableUnderline startAdornment={<img src={search_icon} width='58px' ></img>} autoFocus/><AddButton color='blue' size='big'/>
         </div>
         <div className="Events">
           <Card variant='outlined'>
