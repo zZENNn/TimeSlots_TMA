@@ -1,0 +1,15 @@
+.TextButton{
+    border: none;
+    
+    background: none;
+    color: #E3E6EB;
+    &:hover{
+        color: #c4c4c4;
+    }
+    padding: 10px 12px;
+
+    cursor: pointer;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: 500;
+}

@@ -4,6 +4,13 @@ import { Card } from '@mui/material'
 
 import SearchBar from '../../components/SearchBar/SearchBar'
 import Heading from '../../components/Heading/Heading'
+import TextButton from '../../components/TextButton/TextButton'
+
+/*
+TODO: 
+Сделать свой компонент карточки с ховер эффектом
+*/
+
 
 export default function EventsPage() {
   return (
@@ -22,6 +29,9 @@ export default function EventsPage() {
             <p>Текст наполнения карточки очень длинный и важдный</p>
           </Card>
         </div>
+        <div className="moreButtonBlock">
+          <TextButton text='Показать все'/>
+        </div>
         <Heading text='Участвую'/>
         <div className="Events">
           <Card variant='outlined' className='Events-Card Card'>
@@ -34,6 +44,9 @@ export default function EventsPage() {
             <b>Заголовок</b>
             <p>Текст наполнения карточки очень длинный и важдный</p>
           </Card>
+        </div>
+        <div className="moreButtonBlock">
+          <TextButton text='Показать все'/>
         </div>
     </>
   )

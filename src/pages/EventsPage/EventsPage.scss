@@ -1,4 +1,8 @@
-
+.moreButtonBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
 
 .Events{
     margin: 15px 0px 0;
@@ -10,11 +14,7 @@
     padding: 8px;
     border-radius: 12px !important;
     cursor: pointer;
-    div{
-        :hover{
-            background-color: rgb(230, 230, 230);
-        }
-    }
+    
 
     b{
         margin: 0;
