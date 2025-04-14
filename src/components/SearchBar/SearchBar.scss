@@ -1,0 +1,20 @@
+.Search{
+    
+    background-color: white;
+    min-width: 100px;
+    height: 56px;
+    border-radius: 9px;
+
+
+}
+
+.SearchAndAdd{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+}
+
+.AddButton{
+margin-left: 6px;
+}
