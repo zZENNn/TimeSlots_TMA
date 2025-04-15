@@ -1,0 +1,21 @@
+.Card{
+    
+    padding: 8px;
+    border-radius: 12px !important;
+    cursor: pointer;
+    background-color: white;
+    &:hover{
+        background-color: #e0e0e0 ;
+    }
+
+    b{
+        margin: 0;
+        padding:0;
+        font-size: 16px;
+    }
+    p{
+        margin: 5px 0;
+        // padding:0
+        font-size: 14px;
+    }
+}
