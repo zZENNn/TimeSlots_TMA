@@ -2,15 +2,17 @@ import './Card.scss'
 
 export type CardProps = {
     title: string
-    p: string
+    description: string
+    date: string
     className?: string
 }
 
 export default function Card(props: CardProps) {
   return (
     <div className={`Card ${props.className}`}>
-        <b>{props.title}</b>
-        <p>{props.p}</p>
+        <b id='title'>{props.title}</b>
+        <p id='date'><b>Дата:</b> {props.date}</p>
+        <p id='description'>{props.description}</p>
   </div>
   )
 }
