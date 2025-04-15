@@ -14,22 +14,27 @@ export default function EventsPage() {
     <>
         <Header headingText='События'/>
         <SearchBar/>
-        <Heading text='Мои события'/>
-        <div className="Events">
-          <Card title='Диджейка 22.05.2025' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
-          <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>  
+        <div className="EventsWrap">
+          <Heading text='Мои события'/>
+          <div className="Events">
+            <Card title='Диджейка 22.05.2025' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
+            <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>  
+          </div>
+          <div className="moreButtonBlock">
+            <TextButton text='Показать все'/>
+          </div>
+          
+          <Heading text='Участвую' id='Participate'/>
+        
+          <div className="Events">
+          <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
+          <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
+          </div>
+          <div className="moreButtonBlock">
+            <TextButton text='Показать все'/>
+          </div>
         </div>
-        <div className="moreButtonBlock">
-          <TextButton text='Показать все'/>
-        </div>
-        <Heading text='Участвую'/>
-        <div className="Events">
-        <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
-        <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
-        </div>
-        <div className="moreButtonBlock">
-          <TextButton text='Показать все'/>
-        </div>
+        
     </>
   )
 }
