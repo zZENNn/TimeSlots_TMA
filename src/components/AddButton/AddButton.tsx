@@ -1,10 +1,12 @@
 
 import icon from './plus_icon_white.svg'
 import './AddButton.scss'
+import { ReactNode } from 'react'
 
 export type AddButtonProps = {
    color: 'blue' | 'white'
    size: 'big' | 'small'
+   children?: ReactNode
 
 }
 
