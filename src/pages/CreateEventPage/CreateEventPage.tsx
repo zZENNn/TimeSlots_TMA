@@ -2,7 +2,7 @@ import {DatePicker} from '@mui/x-date-pickers'
 import Header from '../../components/Header/Header'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import HCenteredLayout from '../../layouts/HCenteredLayout/HCenteredLayout'
-import { colors, TextField } from '@mui/material'
+import {TextField } from '@mui/material'
 import './CreateEventPage.scss'
 
 export default function CreateEventPage() {
