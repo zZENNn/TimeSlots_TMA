@@ -6,7 +6,7 @@ import { colors, TextField } from '@mui/material'
 import './CreateEventPage.scss'
 
 export default function CreateEventPage() {
-  const newTheme = (theme) => createTheme({
+  const newTheme = (theme:any) => createTheme({
   ...theme,
   components: {
     MuiPickersTextField: {
