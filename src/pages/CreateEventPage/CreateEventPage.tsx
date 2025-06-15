@@ -15,9 +15,9 @@ export default function CreateEventPage() {
         <Header headingText='Добавить событие' backButton backButtonLink='/TimeSlots_TMA/'/>
         <HCenteredLayout>
           
-          <DatePicker label='Дата' className='Form-Field muidatepicker' sx={{width: '400px'}}/>
-          <TextField label='Название' className='Form-Field' margin='normal' size='medium' sx={{width: '400px'}}/>
-          <TextField label='Описание' className='Form-Field' margin='dense' multiline sx={{width: '400px'}}/>
+          <DatePicker label='Дата' className='Form-Field muidatepicker' sx={{width: '350px'}} />
+          <TextField label='Название' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '350px'}}/>
+          <TextField label='Описание' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '350px'}}/>
         </HCenteredLayout>
         
         
