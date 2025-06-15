@@ -11,7 +11,7 @@ export type SearchBarProps = {
 export default function SearchBar(props: SearchBarProps) {
   return (
     <div className="SearchAndAdd">
-        <Input className='Search' fullWidth disableUnderline startAdornment={<img src={search_icon} width='58px'></img>} autoFocus/>
+        <Input className='Search' fullWidth disableUnderline startAdornment={<img src={search_icon} width='58px'></img>}/>
         <Link to={props.buttonLink}>
           <AddButton color='blue' size='big'/>
         </Link>
