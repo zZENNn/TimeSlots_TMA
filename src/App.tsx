@@ -1,5 +1,5 @@
 
-import {HashRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
 
 import EventsPage from './pages/EventsPage/EventsPage'
@@ -123,12 +123,12 @@ function App() {
     <>
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <ThemeProvider theme={newTheme}>
-      <HashRouter>
+      <BrowserRouter>
       <Routes>
         <Route path='/TimeSlots_TMA/' element={<EventsPage/>}></Route>
         <Route path='/TimeSlots_TMA/create-event' element={<CreateEventPage/>}></Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
     </ThemeProvider>
     </LocalizationProvider>
     
