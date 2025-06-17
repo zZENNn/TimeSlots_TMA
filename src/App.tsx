@@ -123,7 +123,7 @@ function App() {
     <>
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <ThemeProvider theme={newTheme}>
-      <BrowserRouter basename={'/TimeSlots_TMA/'}>
+      <BrowserRouter basename={import.meta.env.DEV ? '/' : '/TimeSlots_TMA/'}>
       <Routes>
         <Route path='/TimeSlots_TMA/' element={<EventsPage/>}></Route>
         <Route path='/TimeSlots_TMA/create-event' element={<CreateEventPage/>}></Route>
