@@ -1,5 +1,5 @@
 
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router'
+import {HashRouter, Route, Routes } from 'react-router'
 import './App.css'
 
 import EventsPage from './pages/EventsPage/EventsPage'
