@@ -16,8 +16,10 @@ TODO:
 export default function EventsPage() {
   return (
     <>
-        <Header headingText='События' backButtonLink=''/>
-        <SearchBar buttonLink='/TimeSlots_TMA/create-event'/>
+        <div className="HeaderSearchBarWrapper">
+          <Header headingText='События' backButtonLink=''/>
+          <SearchBar buttonLink='/TimeSlots_TMA/create-event'/>
+        </div>
         <div className="EventsWrap">
           <Heading text='Мои события'/>
           <div className="Events">

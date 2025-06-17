@@ -100,13 +100,15 @@ function App() {
             color: 'white',
             '&:hover':{
               backgroundColor:'rgb(32, 62, 158)'
-            }
+            },
+            marginRight: '-6px'
           },
           span:{
             color: 'white'
-          }
-          
+          },
+         
         },
+        
         
       }
     },

@@ -1,0 +1,30 @@
+.TimeSlotsSection{
+    
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    &-horizontalWrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &-TimeSlotsList{
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        margin-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        column-gap: 20px;
+        row-gap: 15px;
+        
+        overflow-y: scroll;
+        scrollbar-width: 8px;
+        height: 234px
+        
+    }
+}
