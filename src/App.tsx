@@ -6,7 +6,7 @@ import EventsPage from './pages/EventsPage/EventsPage'
 import CreateEventPage from './pages/CreateEventPage/CreateEventPage'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import {  createTheme,  ThemeProvider } from '@mui/material';
+
 function App() {
   //const [count, setCount] = useState(0)
   

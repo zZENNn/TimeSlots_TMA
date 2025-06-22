@@ -8,7 +8,7 @@ export type AddButtonProps = {
    color: 'blue' | 'white'
    size: 'big' | 'small'
    children?: ReactNode;
-   onClick: ()=>void
+   onClick?: ()=>void
    
 
 }
