@@ -17,26 +17,26 @@ export default function EventsPage() {
   return (
     <>
         <div className="HeaderSearchBarWrapper">
-          <Header headingText='События' backButtonLink=''/>
+          <Header headingText='Events' backButtonLink=''/>
           <SearchBar buttonLink='/TimeSlots_TMA/create-event'/>
         </div>
         <div className="EventsWrap">
-          <Heading text='Мои события'/>
+          <Heading text='My events' align='left'/>
           <div className="Events">
             <Card title='Диджейка 22.05.2025' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
             <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>  
           </div>
           <div className="moreButtonBlock">
-            <TextButton text='Показать все'/>
+            <TextButton text='Show all'/>
           </div>
           
-          <Heading text='Участвую' id='Participate'/>
+          <Heading text='Participating' align='left' id='Participate'/>
         
           <div className="Events">
           <NoContentPlaceholder/>
           </div>
           <div className="moreButtonBlock">
-            <TextButton text='Показать все'/>
+            <TextButton text='Show all'/>
           </div>
         </div>
         

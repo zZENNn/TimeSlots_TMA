@@ -50,7 +50,8 @@ $ButtonWhiteHover: rgb(247, 247, 247);
 
         &:hover{
             color: $ButtonBlueHover;
-            border-color: $ButtonBlueHover
+            border-color: $ButtonBlueHover;
+            cursor: pointer;
         }
     };
 

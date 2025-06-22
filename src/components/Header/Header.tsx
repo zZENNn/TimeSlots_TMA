@@ -13,7 +13,7 @@ export default function Header(props: HeaderProps) {
   if(props.backButton === true){
     return (
       <header className='Header'>
-          <Link to={props.backButtonLink}><BackButton/></Link><Heading text={props.headingText}/>
+          <Link to={props.backButtonLink}><BackButton/></Link><h1 className='Header-H1'>{props.headingText}</h1>
       </header>
     )
   }

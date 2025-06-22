@@ -7,17 +7,18 @@
     font-style: normal;
     color: #E3E6EB;
     
+    
+    
     &_align_center{
-        margin-left: auto;
-        margin-right: auto;
+        text-align: center;
     }
     &_align_left{
-        margin-left: 0;
-        margin-right: auto;
+       text-align: left;
     }
     &_align_right{
-        margin-right: 0;
-        margin-left: auto;
+        text-align: right;
     }
+
+
     
 }

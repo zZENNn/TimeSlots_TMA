@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.Modal{
+    background-color: #F0F0F0;
+    width: 312px;
+    height: 300px;
+    border-radius: 22px;
+    z-index: 1;
+    border: 0;
+    
+    dialog{
+        margin-top: -100px;
+    }
+    
+    h1{
+        color:#404040;
+        padding-top: 10px
+    }
+    label{
+        font-family: "Inter";
+        font-weight: 600;
+        font-size: 16px;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: #404040;
+        width:250px;
+        display: block;
+        margin: 10px 0px;
+
+    };
+    
+}
+.Modal-MainContentWrapper{
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.Modal-AddTimeSlot-TimeInputsWrapper{
+    display: block;
+}
+.Modal-AddTimeSlot-TimePicker{
+    display: block ;
+    width: 250px;
+    margin-left: 60px;
+    padding: auto;
+}
+.Modal-AddTimeSlot-DialogButtonsWrapper{
+   display: flex;
+   flex-direction:row;
+   justify-content: space-between;
+   margin-top: 10px;
+   button{
+    margin: 9px;
+    font-weight: 500;
+    width: 250px;
+   }
+   
+}

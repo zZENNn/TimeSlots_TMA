@@ -7,21 +7,23 @@ import './CreateEventPage.scss'
 import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection'
 import Button from '../../components/Button/Button'
 
-export default function CreateEventPage() {
-  
 
+export default function CreateEventPage() {
+
+  //const dialogRef = useRef<HTMLDialogElement|null>(null) 
+  
   return (
     //TODO: Сделать нормально типы в Header, чтобы ссылка кнопки была не обязательной, но при этом работала в Link
     <div className='CreateEventPage'>
-        
-        <Header headingText='Добавить событие' backButton backButtonLink='/TimeSlots_TMA/'/>
+        <Header headingText='Add Event' backButton backButtonLink='/TimeSlots_TMA/'/>
         <HCenteredLayout>
-          <DatePicker label='Дата' className='Form-Field muidatepicker' sx={{width: '310px'}} />
-          <TextField label='Название' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}}/>
-          <TextField label='Описание' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}}/>
+          <DatePicker label='Date' className='Form-Field muidatepicker' sx={{width: '310px'}} />
+          <TextField label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}}/>
+          <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}}/>
 
           <TimeSlotsSection/>
-          <Button text='Создать событие' size='big' color='primary'/>
+          <Button text='Create event' size='big' color='primary'/>
+          
         </HCenteredLayout>
         
         
