@@ -4,6 +4,9 @@ import Heading from "../Heading/Heading"
 import "./AddTimeSlotModal.scss"
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { useRef } from "react";
+import { Popper } from "@mui/material";
+import App from "../../App";
+import CreateEventPage from "../../pages/CreateEventPage/CreateEventPage";
 
 
 export type AddTimeSlotModalProps = {
@@ -23,10 +26,26 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
       <div className="Modal-MainContentWrapper">
         <div className="Modal-AddTimeSlot-TimeInputsWrapper">
         <label htmlFor="startInput">Начало</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput"/>
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput" slotProps={{
+          popper:{
+            sx:{
+              zIndex: 1
+            },
+            container: document.getElementsByClassName('Modal-AddTimeSlot-TimePicker')[0]
+            
+          }
+        }}/>
         
         <label htmlFor="input">Конец</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker"/>
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" slotProps={{
+          popper:{
+            sx:{
+              zIndex: 1
+            },
+            container: document.getElementsByClassName('Modal-AddTimeSlot-TimePicker')[1]
+            
+          }
+        }}/>
         </div>
         <div className="Modal-AddTimeSlot-DialogButtonsWrapper">
           <Button size="small" color="primary" text="Создать" />
