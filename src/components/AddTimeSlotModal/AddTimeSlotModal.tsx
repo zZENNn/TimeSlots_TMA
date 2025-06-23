@@ -24,7 +24,7 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
       <div className="Modal-MainContentWrapper">
         <div className="Modal-AddTimeSlot-TimeInputsWrapper">
         <label htmlFor="startInput">Начало</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput" slotProps={{
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput" ampm={false} ampmInClock={false} slotProps={{
           popper:{
             sx:{
               zIndex: 1
@@ -35,7 +35,7 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
         }}/>
         
         <label htmlFor="input">Конец</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker" slotProps={{
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" ampm={false} ampmInClock={false} slotProps={{
           popper:{
             sx:{
               zIndex: 1
