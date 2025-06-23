@@ -24,14 +24,29 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
       <div className="Modal-MainContentWrapper">
         <div className="Modal-AddTimeSlot-TimeInputsWrapper">
         <label htmlFor="startInput">Начало</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput" ampm={false} ampmInClock={false} slotProps={{
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput"  ampm={false} ampmInClock={false} slotProps={{
           popper:{
             sx:{
               zIndex: 1
             },
             container: document.getElementsByClassName('Modal-AddTimeSlot-TimePicker')[0]
             
+          },
+          dialog:{
+             sx:{
+              ":root":{
+                content:{
+                  overflow: "visible"
+                }
+              },
+              zIndex: 1,
+              
+            },
+            container: document.getElementsByClassName('Modal')[0],
+            
+            
           }
+          
         }}/>
         
         <label htmlFor="input">Конец</label>
