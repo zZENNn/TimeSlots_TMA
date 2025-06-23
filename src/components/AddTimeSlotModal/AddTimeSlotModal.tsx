@@ -4,9 +4,7 @@ import Heading from "../Heading/Heading"
 import "./AddTimeSlotModal.scss"
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { useRef } from "react";
-import { Popper } from "@mui/material";
-import App from "../../App";
-import CreateEventPage from "../../pages/CreateEventPage/CreateEventPage";
+
 
 
 export type AddTimeSlotModalProps = {
