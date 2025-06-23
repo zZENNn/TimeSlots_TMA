@@ -3,6 +3,7 @@ import Button from "../Button/Button"
 import Heading from "../Heading/Heading"
 import "./AddTimeSlotModal.scss"
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { useRef } from "react";
 
 
 export type AddTimeSlotModalProps = {
@@ -11,10 +12,11 @@ export type AddTimeSlotModalProps = {
 }
 
 export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
-
+  const dialogRef = useRef<HTMLDialogElement|null>(null)
+  {props.show?dialogRef.current?.showModal():dialogRef.current?.close()}
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
-    <dialog className="Modal Modal-AddTimeSlot" open={props.show}>
+    <dialog className="Modal Modal-AddTimeSlot"  ref={dialogRef}>
       <div className="Modal-AddTimeSlot-HeadingWrapper">
         <Heading align="center" text="Новый слот" color='#000000'/>
       </div>

@@ -6,14 +6,15 @@
     border-radius: 22px;
     z-index: 1;
     border: 0;
+    margin: 0;
     position: fixed;
-    top: 50%;
+    top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     
-    dialog{
-        margin-top: -100px;
-    }
+    // dialog{
+    //     margin-top: -100px;
+    // }
     
     h1{
         color:#404040;
