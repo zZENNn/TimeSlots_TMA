@@ -16,6 +16,23 @@ const newTheme = (theme:any) => createTheme({
     }
   },
   components: {
+   MuiDialog:{
+        styleOverrides:{
+          scrollPaper:{
+            position: "fixed",
+            overflow: "visible",
+            height: "800px",
+            margin: 0,
+            top: "-50%",
+            left: "-5%"
+            //transform: translateX(-50%),
+          }
+          // root:{
+          //    overflow: "visible",
+          //    height: "1080px"
+          // }
+        }
+    },
     MuiTextField: {
       styleOverrides: {
         root: {

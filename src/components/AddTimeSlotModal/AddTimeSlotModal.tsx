@@ -21,6 +21,7 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
       <div className="Modal-AddTimeSlot-HeadingWrapper">
         <Heading align="center" text="Новый слот" color='#000000'/>
       </div>
+      <div className="MUIPoppersContainer"></div>
       <div className="Modal-MainContentWrapper">
         <div className="Modal-AddTimeSlot-TimeInputsWrapper">
         <label htmlFor="startInput">Начало</label>
@@ -34,16 +35,13 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
           },
           dialog:{
              sx:{
-              ":root":{
-                content:{
-                  overflow: "visible"
-                }
-              },
-              zIndex: 1,
+              overflow: "visible",
+              zIndex: 1500,
               
             },
-            container: document.getElementsByClassName('Modal')[0],
-            
+            container: document.getElementsByClassName('MUIPoppersContainer')[0],
+            scroll: "paper",
+            //See theme in main.ts for mobile clock-popper positions
             
           }
           
@@ -57,7 +55,19 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
             },
             container: document.getElementsByClassName('Modal-AddTimeSlot-TimePicker')[1]
             
+          },
+          dialog:{
+             sx:{
+              overflow: "visible",
+              zIndex: 1500,
+              
+            },
+            container: document.getElementsByClassName('MUIPoppersContainer')[0],
+            scroll: "paper",
+            //See theme in main.ts for mobile clock-popper positions
+            
           }
+          
         }}/>
         </div>
         <div className="Modal-AddTimeSlot-DialogButtonsWrapper">
