@@ -24,7 +24,7 @@ const newTheme = (theme:any) => createTheme({
             height: "800px",
             margin: 0,
             top: "-150px",
-            left: "-20px"
+            left: "-5%"
             //transform: translateX(-50%),
           }
           // root:{
