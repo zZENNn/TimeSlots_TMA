@@ -19,12 +19,12 @@ const newTheme = (theme:any) => createTheme({
    MuiDialog:{
         styleOverrides:{
           scrollPaper:{
-            position: "fixed",
+            position: "absolute",
             overflow: "visible",
             height: "800px",
             margin: 0,
-            top: "-50%",
-            left: "-5%"
+            top: "-150px",
+            left: "-20px"
             //transform: translateX(-50%),
           }
           // root:{
