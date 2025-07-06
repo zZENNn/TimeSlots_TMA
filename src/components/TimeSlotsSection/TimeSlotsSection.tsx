@@ -2,15 +2,32 @@ import Heading from '../Heading/Heading'
 import AddButton from '../AddButton/AddButton'
 import './TimeSlotsSection.scss'
 import TimeSlot from '../TimeSlot/TimeSlot'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddTimeSlotModal from '../AddTimeSlotModal/AddTimeSlotModal'
+import { TimeSlotProps } from '../TimeSlot/TimeSlot'
+
+import { useTimeSlotsStore } from '../../stores/TimeSlotsStore'
+
+export type TimSlotsSectionProps = {
+  timeSlots: TimeSlotProps[]
+}
+
+export default function TimeSlotsSection(props: TimSlotsSectionProps) {
 
 
-
-export default function TimeSlotsSection() {
-
+    
+  //const [timeSlotsList, setTimeSlotsList] = useState<typeof TimeSlot[]>([])
   const [showModal, setShowModal] = useState(false)
-  {showModal&&console.log('click')}
+   
+   //const timeSlots = useTimeSlotsStore((state)=>state.timeSlots)
+    
+    
+  //  console.log(props.timeSlots)
+    
+ 
+  
+  
+  
   return (
     <div className='TimeSlotsSection'>
         <AddTimeSlotModal show={showModal} onClose={()=>setShowModal(false)}/>
@@ -18,19 +35,13 @@ export default function TimeSlotsSection() {
             <Heading align='left' text='Slots'/><AddButton color='white' size='small' onClick={()=>setShowModal(true)}/>
         </div>
         <div className="TimeSlotsSection-TimeSlotsList">
-            <TimeSlot state='available' startTime='14:00' endTime='15:00'/>
-            <TimeSlot state='available' startTime='16:00' endTime='17:00'/>
-            <TimeSlot state='available' startTime='17:00' endTime='18:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
-            <TimeSlot state='available' startTime='19:00' endTime='20:00'/>
+          {
+            props.timeSlots.map((slot: TimeSlotProps)=>{
+              return <TimeSlot state={slot.state} startTime={slot.startTime} endTime={slot.endTime}/>
+            }
+    )}
+            
+            
             
         </div>
     </div>

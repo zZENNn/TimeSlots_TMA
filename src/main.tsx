@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ruRU } from '@mui/material/locale';
+import './stores/TimeSlotsStore.ts'
 
 const newTheme = (theme:any) => createTheme({
   ...theme,

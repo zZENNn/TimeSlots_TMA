@@ -6,11 +6,23 @@ import {TextField } from '@mui/material'
 import './CreateEventPage.scss'
 import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection'
 import Button from '../../components/Button/Button'
+import { useEffect, useState } from 'react'
+import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
+import { useTimeSlotsStore } from '../../stores/TimeSlotsStore'
 
 
 export default function CreateEventPage() {
 
-  //const dialogRef = useRef<HTMLDialogElement|null>(null) 
+  // const [timeSlots, setTimeSlots] = useState<TimeSlotProps[]>([])
+
+  // const timeSlotsList = useTimeSlotsStore((state)=>state.timeSlots)
+  // const setSlots = ()=>setTimeSlots(timeSlotsList)
+  // useEffect(()=>{
+  //   ()=>setSlots()
+  // },[])
+  
+  // console.log(timeSlots)
+  const timeSlotsList = useTimeSlotsStore((state)=>state.timeSlots)
   
   return (
     //TODO: Сделать нормально типы в Header, чтобы ссылка кнопки была не обязательной, но при этом работала в Link
@@ -21,7 +33,7 @@ export default function CreateEventPage() {
           <TextField label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}}/>
           <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}}/>
 
-          <TimeSlotsSection/>
+          <TimeSlotsSection timeSlots={timeSlotsList}/>
           <Button text='Create event' size='big' color='primary'/>
           
         </HCenteredLayout>

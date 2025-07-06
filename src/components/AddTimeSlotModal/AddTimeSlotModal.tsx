@@ -1,11 +1,12 @@
-import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers"
+import { DayCalendarClassKey, LocalizationProvider, TimePicker } from "@mui/x-date-pickers"
 import Button from "../Button/Button"
 import Heading from "../Heading/Heading"
 import "./AddTimeSlotModal.scss"
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import { useRef } from "react";
-
-
+import { useRef, useState } from "react";
+import { useTimeSlotsStore } from "../../stores/TimeSlotsStore";
+import * as moment from "moment"
+import { TimeSlotProps } from "../TimeSlot/TimeSlot";
 
 export type AddTimeSlotModalProps = {
   show: boolean
@@ -13,8 +14,24 @@ export type AddTimeSlotModalProps = {
 }
 
 export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
+
   const dialogRef = useRef<HTMLDialogElement|null>(null)
+
   {props.show?dialogRef.current?.showModal():dialogRef.current?.close()}
+
+  const [sTime, set_sTime] = useState<moment.Moment | null>();
+  const [eTime, set_eTime] = useState<moment.Moment | null>();
+
+  const addTimeSlot = useTimeSlotsStore((state)=>state.addTimeSlot)
+  
+  const addSlot = ()=>{
+      if(sTime&&eTime){
+        addTimeSlot({state: 'available', startTime: sTime?.format("HH:mm").toString(), endTime: eTime?.format("HH:mm").toString()})
+        console.log(`${sTime}`)
+    }
+  
+  }
+
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
     <dialog className="Modal Modal-AddTimeSlot"  ref={dialogRef}>
@@ -25,7 +42,7 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
       <div className="Modal-MainContentWrapper">
         <div className="Modal-AddTimeSlot-TimeInputsWrapper">
         <label htmlFor="startInput">Начало</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput"  ampm={false} ampmInClock={false} slotProps={{
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" name="startInput"  ampm={false} ampmInClock={false}  onChange={(newValue)=>{set_sTime(newValue)}} slotProps={{
           popper:{
             sx:{
               zIndex: 1
@@ -48,7 +65,7 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
         }}/>
         
         <label htmlFor="input">Конец</label>
-        <TimePicker className="Modal-AddTimeSlot-TimePicker" ampm={false} ampmInClock={false} slotProps={{
+        <TimePicker className="Modal-AddTimeSlot-TimePicker" ampm={false} ampmInClock={false} onChange={(newValue)=>{set_eTime(newValue)}} slotProps={{
           popper:{
             sx:{
               zIndex: 1
@@ -61,6 +78,7 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
               overflow: "visible",
               zIndex: 1500,
               
+              
             },
             container: document.getElementsByClassName('MUIPoppersContainer')[0],
             scroll: "paper",
@@ -71,7 +89,14 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
         }}/>
         </div>
         <div className="Modal-AddTimeSlot-DialogButtonsWrapper">
-          <Button size="small" color="primary" text="Создать" />
+          {/* fix the shit in the next line!!! */}
+          <Button size="small" color="primary" text="Создать" onClick={
+            ()=>{
+              addSlot()
+              props.onClose()
+            }
+              
+          }/>
           <Button size="small" color="inverted" text="Отмена" onClick={props.onClose} /> 
         </div>
       </div>
