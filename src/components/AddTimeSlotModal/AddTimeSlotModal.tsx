@@ -1,4 +1,4 @@
-import { DayCalendarClassKey, LocalizationProvider, TimePicker } from "@mui/x-date-pickers"
+import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers"
 import Button from "../Button/Button"
 import Heading from "../Heading/Heading"
 import "./AddTimeSlotModal.scss"
@@ -6,7 +6,6 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { useRef, useState } from "react";
 import { useTimeSlotsStore } from "../../stores/TimeSlotsStore";
 import * as moment from "moment"
-import { TimeSlotProps } from "../TimeSlot/TimeSlot";
 
 export type AddTimeSlotModalProps = {
   show: boolean

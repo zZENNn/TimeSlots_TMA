@@ -2,11 +2,10 @@ import Heading from '../Heading/Heading'
 import AddButton from '../AddButton/AddButton'
 import './TimeSlotsSection.scss'
 import TimeSlot from '../TimeSlot/TimeSlot'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import AddTimeSlotModal from '../AddTimeSlotModal/AddTimeSlotModal'
 import { TimeSlotProps } from '../TimeSlot/TimeSlot'
 
-import { useTimeSlotsStore } from '../../stores/TimeSlotsStore'
 
 export type TimSlotsSectionProps = {
   timeSlots: TimeSlotProps[]

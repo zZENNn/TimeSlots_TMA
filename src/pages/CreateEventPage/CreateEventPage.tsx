@@ -6,8 +6,6 @@ import {TextField } from '@mui/material'
 import './CreateEventPage.scss'
 import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection'
 import Button from '../../components/Button/Button'
-import { useEffect, useState } from 'react'
-import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
 import { useTimeSlotsStore } from '../../stores/TimeSlotsStore'
 
 
