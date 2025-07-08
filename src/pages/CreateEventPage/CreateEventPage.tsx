@@ -46,9 +46,10 @@ export default function CreateEventPage() {
             description: eventDescription,
             slots: timeSlotsList,
             creator: appUser?.id
-        }
+          }
         console.log(event)
         }
+        else console.log('appUser is not defined')
         
       }
       
