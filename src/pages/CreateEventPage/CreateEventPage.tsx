@@ -32,24 +32,24 @@ export default function CreateEventPage() {
 
   
 
-  const useEventPost = () =>{
-    useEffect(()=>{
-      //composeEvent()
-      if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){
-        const event: Event = {
-          date: eventDate,
-          title: eventTitle,
-          description: eventDescription,
-          slots: timeSlotsList,
-          creator: "telegram user"
-        }
-      }
+  // const useEventPost = () =>{
+  //   useEffect(()=>{
+  //     //composeEvent()
+  //     if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){
+  //       const event: Event = {
+  //         date: eventDate,
+  //         title: eventTitle,
+  //         description: eventDescription,
+  //         slots: timeSlotsList,
+  //         creator: "telegram user"
+  //       }
+  //     }
       
         
 
 
-    },[])
-  }
+  //   },[])
+  // }
   
   return (
     //TODO: Сделать нормально типы в Header, чтобы ссылка кнопки была не обязательной, но при этом работала в Link
