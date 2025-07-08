@@ -55,7 +55,7 @@ export default function CreateEventPage() {
       
         
     console.log('useEventPost')
-
+    console.log(appUser?.id)
     // },[])
   }
   
