@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ruRU } from '@mui/material/locale';
 import './stores/TimeSlotsStore.ts'
 
+
 const newTheme = (theme:any) => createTheme({
   ...theme,
   palette:{
@@ -135,6 +136,8 @@ const newTheme = (theme:any) => createTheme({
 },
 ruRU
 )
+
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
