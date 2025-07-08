@@ -14,7 +14,7 @@ function App() {
   const setUser = useTelegramAppUserStore((state)=>state.setUser)
 
   useEffect(()=>{
-    setUser(useLaunchParams().tgWebAppData?.user)
+    ()=>setUser(useLaunchParams().tgWebAppData?.user)
   },[])
   
   return (

@@ -49,10 +49,11 @@ export default function CreateEventPage() {
         }
         console.log(event)
         }
+        
       }
       
         
-
+    console.log('useEventPost')
 
     // },[])
   }
