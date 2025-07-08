@@ -6,10 +6,17 @@ import EventsPage from './pages/EventsPage/EventsPage'
 import CreateEventPage from './pages/CreateEventPage/CreateEventPage'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers';
+import { useTelegramAppUserStore } from './stores/AppTelegramUserStore';
+import { useEffect } from 'react';
 
 function App() {
   //const [count, setCount] = useState(0)
-  console.log(useLaunchParams());
+  const setUser = useTelegramAppUserStore((state)=>state.setUser)
+
+  useEffect(()=>{
+    setUser(useLaunchParams().tgWebAppData?.user)
+  },[])
+  
   return (
     <>
     <LocalizationProvider dateAdapter={AdapterMoment}>

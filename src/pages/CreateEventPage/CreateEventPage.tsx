@@ -7,16 +7,17 @@ import './CreateEventPage.scss'
 import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection'
 import Button from '../../components/Button/Button'
 import { useTimeSlotsStore } from '../../stores/TimeSlotsStore'
-import { useEffect, useState } from 'react'
+import { /*useEffect,*/ useState } from 'react'
 import moment from 'moment'
 import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
+import { useTelegramAppUserStore } from '../../stores/AppTelegramUserStore'
 
 export type Event = {
   date: moment.Moment | null
   title: string | null
   description: string | null
   slots: TimeSlotProps[]
-  creator: "telegram user"
+  creator: number
 
 }
 
@@ -30,26 +31,30 @@ export default function CreateEventPage() {
   const [eventDescription, setEventDescription] = useState<string | null>()
   
 
-  
+  const appUser = useTelegramAppUserStore((state)=>state.user)
 
+
+  //ADD CHECKS FOR UNDEFINED VALUES
   const useEventPost = () =>{
-    useEffect(()=>{
+    // useEffect(()=>{
       //composeEvent()
       if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){
-        const event: Event = {
-          date: eventDate,
-          title: eventTitle,
-          description: eventDescription,
-          slots: timeSlotsList,
-          creator: "telegram user"
+        if(appUser){
+          const event: Event = {
+            date: eventDate,
+            title: eventTitle,
+            description: eventDescription,
+            slots: timeSlotsList,
+            creator: appUser?.id
         }
         console.log(event)
+        }
       }
       
         
 
 
-    },[])
+    // },[])
   }
   
   return (
@@ -62,7 +67,7 @@ export default function CreateEventPage() {
           <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} onChange={(description)=>setEventDescription(description.toString())}/>
 
           <TimeSlotsSection timeSlots={timeSlotsList}/>
-          <Button text='Create event' size='big' color='primary' onClick={useEventPost}/>
+          <Button text='Create event' size='big' color='primary' onClick={()=>useEventPost()}/>
           
         </HCenteredLayout>
         
