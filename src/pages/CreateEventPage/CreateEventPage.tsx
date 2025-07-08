@@ -32,24 +32,25 @@ export default function CreateEventPage() {
 
   
 
-  // const useEventPost = () =>{
-  //   useEffect(()=>{
-  //     //composeEvent()
-  //     if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){
-  //       const event: Event = {
-  //         date: eventDate,
-  //         title: eventTitle,
-  //         description: eventDescription,
-  //         slots: timeSlotsList,
-  //         creator: "telegram user"
-  //       }
-  //     }
+  const useEventPost = () =>{
+    useEffect(()=>{
+      //composeEvent()
+      if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){
+        const event: Event = {
+          date: eventDate,
+          title: eventTitle,
+          description: eventDescription,
+          slots: timeSlotsList,
+          creator: "telegram user"
+        }
+        console.log(event)
+      }
       
         
 
 
-  //   },[])
-  // }
+    },[])
+  }
   
   return (
     //TODO: Сделать нормально типы в Header, чтобы ссылка кнопки была не обязательной, но при этом работала в Link
@@ -61,7 +62,7 @@ export default function CreateEventPage() {
           <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} onChange={(description)=>setEventDescription(description.toString())}/>
 
           <TimeSlotsSection timeSlots={timeSlotsList}/>
-          <Button text='Create event' size='big' color='primary'/>
+          <Button text='Create event' size='big' color='primary' onClick={useEventPost}/>
           
         </HCenteredLayout>
         
