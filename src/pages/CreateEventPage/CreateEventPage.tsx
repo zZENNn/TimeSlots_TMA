@@ -26,9 +26,9 @@ export default function CreateEventPage() {
   
   const timeSlotsList = useTimeSlotsStore((state)=>state.timeSlots)
 
-  const [eventDate, setEventDate] = useState<moment.Moment | null>()
-  const [eventTitle, setEventTitle] = useState<string | null>()
-  const [eventDescription, setEventDescription] = useState<string | null>()
+  const [eventDate, setEventDate] = useState<moment.Moment | null>(null)
+  const [eventTitle, setEventTitle] = useState<string | null>("")
+  const [eventDescription, setEventDescription] = useState<string | null>("")
   
 
   const appUser = useTelegramAppUserStore((state)=>state.user)
@@ -38,7 +38,8 @@ export default function CreateEventPage() {
   const useEventPost = () =>{
     // useEffect(()=>{
       //composeEvent()
-      if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){
+      if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){//Проверить, почему эти поля undefined приходят
+        console.log(eventDate + " " + eventTitle + " " + eventDescription)
         if(appUser){
           const event: Event = {
             date: eventDate,
@@ -64,9 +65,9 @@ export default function CreateEventPage() {
     <div className='CreateEventPage'>
         <Header headingText='Add Event' backButton backButtonLink='/TimeSlots_TMA/'/>
         <HCenteredLayout>
-          <DatePicker label='Date' className='Form-Field muidatepicker' sx={{width: '310px'}} onChange={(date)=>setEventDate(date)}/>
-          <TextField label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}} onChange={(title)=>setEventTitle(title.toString())}/>
-          <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} onChange={(description)=>setEventDescription(description.toString())}/>
+          <DatePicker label='Date' className='Form-Field muidatepicker' sx={{width: '310px'}} value={eventDate} onChange={(date)=>setEventDate(date)}/>
+          <TextField label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}} value={eventTitle} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setEventTitle(event.target.value)}}/>
+          <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} value={eventDescription} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setEventDescription(event.target.value)}}/>
 
           <TimeSlotsSection timeSlots={timeSlotsList}/>
           <Button text='Create event' size='big' color='primary' onClick={()=>useEventPost()}/>

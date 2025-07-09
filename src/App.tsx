@@ -16,7 +16,6 @@ function App() {
   const user = useLaunchParams().tgWebAppData?.user
   setUser(user)
   
-  
   return (
     <>
     <LocalizationProvider dateAdapter={AdapterMoment}>
