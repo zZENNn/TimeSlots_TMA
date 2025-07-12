@@ -23,7 +23,7 @@ function App() {
 
   setRawInitData(initDataRaw)
   
-  fetch('localhost:3000', {
+  fetch('http://localhost:3000/', {
     method: 'GET',
     headers: {
       Authorization: `tma ${initDataRaw}`
