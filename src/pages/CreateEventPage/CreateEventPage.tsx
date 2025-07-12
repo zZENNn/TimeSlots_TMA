@@ -11,6 +11,7 @@ import { /*useEffect,*/ useState } from 'react'
 import moment from 'moment'
 import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
 import { useTelegramAppUserStore } from '../../stores/AppTelegramUserStore'
+import { useInitDataStore } from '../../stores/InitDataStore'
 
 export type Event = {
   date: moment.Moment | null
@@ -34,6 +35,19 @@ export default function CreateEventPage() {
   const appUser = useTelegramAppUserStore((state)=>state.user)
 
 
+  const useSendData = (data: any) =>{
+    const initDataRaw = useInitDataStore((state)=>state.initData)
+
+    fetch('https://example.com/api', {
+      method: 'POST',
+      headers: {
+        Authorization: `tma ${initDataRaw}`
+      },
+      body: JSON.stringify(data)
+    });
+  }
+
+
   //ADD CHECKS FOR UNDEFINED VALUES
   const useEventPost = () =>{
     // useEffect(()=>{
@@ -49,6 +63,7 @@ export default function CreateEventPage() {
             creator: appUser?.id
           }
         console.log(event)
+        return(event)
         }
         else console.log('appUser is not defined')
         
@@ -70,7 +85,7 @@ export default function CreateEventPage() {
           <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} value={eventDescription} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setEventDescription(event.target.value)}}/>
 
           <TimeSlotsSection timeSlots={timeSlotsList}/>
-          <Button text='Create event' size='big' color='primary' onClick={()=>useEventPost()}/>
+          <Button text='Create event' size='big' color='primary' onClick={()=>useSendData(()=>useEventPost())}/>
           
         </HCenteredLayout>
         
