@@ -22,7 +22,8 @@ function App() {
   const setRawInitData = useInitDataStore((state)=>state.setInitData)
 
   setRawInitData(initDataRaw)
-  
+  console.log(initDataRaw)
+
   fetch('http://localhost:3000/', {
     method: 'GET',
     headers: {
