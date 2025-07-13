@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
-import { /*useLaunchParams,*/ useRawInitData } from '@telegram-apps/sdk-react';
+import {useLaunchParams, useRawInitData } from '@telegram-apps/sdk-react';
 import EventsPage from './pages/EventsPage/EventsPage'
 import CreateEventPage from './pages/CreateEventPage/CreateEventPage'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
@@ -14,22 +14,17 @@ import { useInitDataStore } from './stores/InitDataStore';
 function App() {
   //const [count, setCount] = useState(0)
   //const setUser = useTelegramAppUserStore((state)=>state.setUser)
-  // const user = useLaunchParams().tgWebAppData?.user
+   const launchParams = useLaunchParams()
   //setUser(user)
+  console.log(launchParams)
 
   const initDataRaw = useRawInitData()
 
   const setRawInitData = useInitDataStore((state)=>state.setInitData)
 
   setRawInitData(initDataRaw)
-  console.log(initDataRaw)
-
-  fetch('http://localhost:3000/', {
-    method: 'GET',
-    headers: {
-      Authorization: `tma ${initDataRaw}`
-    },
-  });
+  
+  
   
   return (
     <>
