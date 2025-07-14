@@ -9,14 +9,15 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 // import { useTelegramAppUserStore } from './stores/AppTelegramUserStore';
 // import { retrieveRawInitData } from '@telegram-apps/sdk'
 import { useInitDataStore } from './stores/InitDataStore';
+import { useTelegramAppUserStore } from './stores/AppTelegramUserStore';
 // import { useEffect } from 'react';
 
 function App() {
   //const [count, setCount] = useState(0)
-  //const setUser = useTelegramAppUserStore((state)=>state.setUser)
-   const launchParams = useLaunchParams()
-  //setUser(user)
-  console.log(launchParams)
+  const setUser = useTelegramAppUserStore((state)=>state.setUser)
+  const launchParams = useLaunchParams()
+  setUser(launchParams.tgWebAppData?.user)
+  //console.log(launchParams)
 
   const initDataRaw = useRawInitData()
 
@@ -24,8 +25,7 @@ function App() {
 
   setRawInitData(initDataRaw)
   
-  
-  
+
   return (
     <>
     <LocalizationProvider dateAdapter={AdapterMoment}>

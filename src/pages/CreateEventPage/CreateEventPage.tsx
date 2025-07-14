@@ -33,15 +33,17 @@ export default function CreateEventPage() {
   
 
   const appUser = useTelegramAppUserStore((state)=>state.user)
+  const initDataRaw = useInitDataStore((state)=>state.initData)
 
+  const sendData = (data: Event | undefined) =>{
+    
 
-  const useSendData = (data: any) =>{
-    const initDataRaw = useInitDataStore((state)=>state.initData)
-
-    fetch('https://example.com/api', {
+    fetch('http://localhost:3000/events', {
       method: 'POST',
+      // mode: 'cors',
       headers: {
-        Authorization: `tma ${initDataRaw}`
+        Authorization: `tma ${initDataRaw}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data)
     });
@@ -49,7 +51,7 @@ export default function CreateEventPage() {
 
 
   //ADD CHECKS FOR UNDEFINED VALUES
-  const useEventPost = () =>{
+  const composeEvent = () =>{
     // useEffect(()=>{
       //composeEvent()
       if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){//Проверить, почему эти поля undefined приходят
@@ -74,6 +76,8 @@ export default function CreateEventPage() {
     console.log(`InitData: ${appUser}`)
     // },[])
   }
+
+  
   
   return (
     //TODO: Сделать нормально типы в Header, чтобы ссылка кнопки была не обязательной, но при этом работала в Link
@@ -85,7 +89,7 @@ export default function CreateEventPage() {
           <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} value={eventDescription} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setEventDescription(event.target.value)}}/>
 
           <TimeSlotsSection timeSlots={timeSlotsList}/>
-          <Button text='Create event' size='big' color='primary' onClick={()=>useSendData(()=>useEventPost())}/>
+          <Button text='Create event' size='big' color='primary' onClick={()=>sendData(composeEvent())}/>
           
         </HCenteredLayout>
         

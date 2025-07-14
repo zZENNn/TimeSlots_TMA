@@ -6,6 +6,8 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import Heading from '../../components/Heading/Heading'
 import TextButton from '../../components/TextButton/TextButton'
 import NoContentPlaceholder from '../../components/NoContentPlaceholder/NoContentPlaceholder'
+import { useEffect } from 'react'
+import { useInitDataStore } from '../../stores/InitDataStore'
 
 /*
 TODO:
@@ -14,6 +16,21 @@ TODO:
 
 
 export default function EventsPage() {
+
+const initDataRaw = useInitDataStore((state)=>state.initData)
+useEffect(()=>{
+  fetch('http://localhost:3000/events', {
+      method: 'GET',
+      headers: {
+        Authorization: `tma ${initDataRaw}`
+      },
+    }).then(
+      (res)=>{
+        console.log(res)
+      }
+    ).catch((err)=>console.log(err))
+},[])
+
   return (
     <>
         <div className="HeaderSearchBarWrapper">
