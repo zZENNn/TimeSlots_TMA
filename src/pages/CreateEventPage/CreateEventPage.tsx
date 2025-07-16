@@ -14,8 +14,9 @@ import { useTelegramAppUserStore } from '../../stores/AppTelegramUserStore'
 import { useInitDataStore } from '../../stores/InitDataStore'
 
 export type Event = {
+  id: string
   date: moment.Moment | null
-  title: string | null
+  title: string
   description: string | null
   slots: TimeSlotProps[]
   creator: number
@@ -30,7 +31,7 @@ export default function CreateEventPage() {
   const [eventDate, setEventDate] = useState<moment.Moment | null>(null)
   const [eventTitle, setEventTitle] = useState<string | null>("")
   const [eventDescription, setEventDescription] = useState<string | null>("")
-  
+ 
 
   const appUser = useTelegramAppUserStore((state)=>state.user)
   const initDataRaw = useInitDataStore((state)=>state.initData)
@@ -54,10 +55,11 @@ export default function CreateEventPage() {
   const composeEvent = () =>{
     // useEffect(()=>{
       //composeEvent()
-      if(eventDate!==undefined&&eventTitle!==undefined&&eventDescription!==undefined){//Проверить, почему эти поля undefined приходят
+      if(eventDate&&eventTitle&&eventDescription){//Проверить, почему эти поля undefined приходят
         console.log(eventDate + " " + eventTitle + " " + eventDescription)
         if(appUser){
           const event: Event = {
+            id: crypto.randomUUID(),
             date: eventDate,
             title: eventTitle,
             description: eventDescription,

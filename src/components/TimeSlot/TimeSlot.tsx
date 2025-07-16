@@ -5,6 +5,7 @@ export type TimeSlotProps = {
     state: 'available' | 'booked' | 'chosen'
     startTime: string
     endTime: string
+    bookedBy?: number 
 }
 
 export default function TimeSlot(props: TimeSlotProps) {

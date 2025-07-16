@@ -2,7 +2,7 @@ import './Card.scss'
 
 export type CardProps = {
     title: string
-    description: string
+    description: string | null
     date: string
     className?: string
 }

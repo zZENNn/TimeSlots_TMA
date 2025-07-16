@@ -1,13 +1,11 @@
 import './EventsPage.scss'
 import Header from '../../components/Header/Header'
-import Card from '../../components/Card/Card'
-
 import SearchBar from '../../components/SearchBar/SearchBar'
 import Heading from '../../components/Heading/Heading'
-import TextButton from '../../components/TextButton/TextButton'
-import NoContentPlaceholder from '../../components/NoContentPlaceholder/NoContentPlaceholder'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useInitDataStore } from '../../stores/InitDataStore'
+import { Event } from '../CreateEventPage/CreateEventPage'
+import EventsList from '../../components/EventsList/EventsList'
 
 /*
 TODO:
@@ -18,17 +16,47 @@ TODO:
 export default function EventsPage() {
 
 const initDataRaw = useInitDataStore((state)=>state.initData)
+const [myEventsList, setMyEventsList] = useState<Event[]>([])
+const [participatingEventsList, setParticipatingEventsList] = useState<Event[]>([])
+
+
 useEffect(()=>{
-  fetch('http://localhost:3000/events', {
+  console.log('I should render once')
+  //get events that I've created
+  fetch('http://localhost:3000/events/my', {
       method: 'GET',
       headers: {
         Authorization: `tma ${initDataRaw}`
       },
     }).then(
       (res)=>{
-        console.log(res)
+        return res.json()
       }
-    ).catch((err)=>console.log(err))
+    ).then((resBody)=>{
+      console.log(resBody)
+      setMyEventsList(resBody)
+    })
+    .catch((err)=>console.log(err))
+
+    
+},[])
+
+useEffect(()=>{
+  //get events that I'm participating in
+    fetch('http://localhost:3000/events/participating', {
+      method: 'GET',
+      headers: {
+        Authorization: `tma ${initDataRaw}`
+      },
+    }).then(
+      (res2)=>{
+        return res2.json()
+      }
+    ).then((res2Body)=>{
+      console.log(res2Body)
+      setParticipatingEventsList(res2Body)
+    })
+    .catch((err)=>console.log(err))
 },[])
 
   return (
@@ -38,23 +66,11 @@ useEffect(()=>{
           <SearchBar buttonLink='/TimeSlots_TMA/create-event'/>
         </div>
         <div className="EventsWrap">
-          <Heading text='My events' align='left'/>
-          <div className="Events">
-            <Card title='Диджейка 22.05.2025' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>
-            <Card title='Заголовок' date='22.05.2025' description='Текст наполнения карточки очень длинный и важдный' className='Events-Card'/>  
-          </div>
-          <div className="moreButtonBlock">
-            <TextButton text='Show all'/>
-          </div>
-          
+          <Heading text='My events' align='left'/>  
+          {/* My events list */}
+          <EventsList eventList={myEventsList}/>
           <Heading text='Participating' align='left' id='Participate'/>
-        
-          <div className="Events">
-          <NoContentPlaceholder/>
-          </div>
-          <div className="moreButtonBlock">
-            <TextButton text='Show all'/>
-          </div>
+          <EventsList eventList={participatingEventsList}/>
         </div>
         
     </>
