@@ -4,8 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ruRU } from '@mui/material/locale';
-import './stores/TimeSlotsStore.ts'
-import { mockTelegramEnv } from '@telegram-apps/sdk-react';
+import './stores/CreateTimeSlotsStore.ts'
+import { mockTelegramEnv, viewport } from '@telegram-apps/sdk-react';
 
 
 const newTheme = (theme:any) => createTheme({
@@ -22,12 +22,12 @@ const newTheme = (theme:any) => createTheme({
    MuiDialog:{
         styleOverrides:{
           scrollPaper:{
-            position: "absolute",
+            position: "relative",
             overflow: "visible",
             height: "800px",
             margin: 0,
-            top: "-150px",
-            left: "-5%"
+            top: "-5vh",
+            left: parseInt(viewport.width.toString()) *0.25,
             //transform: translateX(-50%),
           }
           // root:{

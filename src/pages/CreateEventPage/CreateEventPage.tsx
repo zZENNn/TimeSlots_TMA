@@ -6,7 +6,7 @@ import {TextField } from '@mui/material'
 import './CreateEventPage.scss'
 import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection'
 import Button from '../../components/Button/Button'
-import { useTimeSlotsStore } from '../../stores/TimeSlotsStore'
+import { useCreateTimeSlotsStore } from '../../stores/CreateTimeSlotsStore'
 import { /*useEffect,*/ useState } from 'react'
 import moment from 'moment'
 import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
@@ -26,7 +26,7 @@ export type Event = {
 export default function CreateEventPage() {
 
   
-  const timeSlotsList = useTimeSlotsStore((state)=>state.timeSlots)
+  const timeSlotsList = useCreateTimeSlotsStore((state)=>state.timeSlots)
 
   const [eventDate, setEventDate] = useState<moment.Moment | null>(null)
   const [eventTitle, setEventTitle] = useState<string | null>("")
@@ -90,7 +90,7 @@ export default function CreateEventPage() {
           <TextField label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}} value={eventTitle} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setEventTitle(event.target.value)}}/>
           <TextField label='Description' className='Form-Field' margin='dense' multiline fullWidth sx={{width: '310px'}} value={eventDescription} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setEventDescription(event.target.value)}}/>
 
-          <TimeSlotsSection timeSlots={timeSlotsList}/>
+          <TimeSlotsSection timeSlots={timeSlotsList} variant='createSlots'/>
           <Button text='Create event' size='big' color='primary' onClick={()=>sendData(composeEvent())}/>
           
         </HCenteredLayout>

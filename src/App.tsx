@@ -10,6 +10,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 // import { retrieveRawInitData } from '@telegram-apps/sdk'
 import { useInitDataStore } from './stores/InitDataStore';
 import { useTelegramAppUserStore } from './stores/AppTelegramUserStore';
+import EventPage from './pages/EventPage/EventPage';
 // import { useEffect } from 'react';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Routes>
         <Route path='/TimeSlots_TMA/' element={<EventsPage/>}></Route>
         <Route path='/TimeSlots_TMA/create-event' element={<CreateEventPage/>}></Route>
+        <Route path='/TimeSlots_TMA/events/:eventId' element={<EventPage/>}></Route>
       </Routes>
     </BrowserRouter>
 

@@ -4,7 +4,7 @@ import Heading from "../Heading/Heading"
 import "./AddTimeSlotModal.scss"
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { useRef, useState } from "react";
-import { useTimeSlotsStore } from "../../stores/TimeSlotsStore";
+import { useCreateTimeSlotsStore } from "../../stores/CreateTimeSlotsStore";
 import * as moment from "moment"
 
 export type AddTimeSlotModalProps = {
@@ -21,11 +21,11 @@ export default function AddTimeSlotModal(props: AddTimeSlotModalProps) {
   const [sTime, set_sTime] = useState<moment.Moment | null>();
   const [eTime, set_eTime] = useState<moment.Moment | null>();
 
-  const addTimeSlot = useTimeSlotsStore((state)=>state.addTimeSlot)
+  const addTimeSlot = useCreateTimeSlotsStore((state)=>state.addTimeSlot)
   
   const addSlot = ()=>{
       if(sTime&&eTime){
-        addTimeSlot({state: 'available', startTime: sTime?.format("HH:mm").toString(), endTime: eTime?.format("HH:mm").toString()})
+        addTimeSlot({id: crypto.randomUUID().toString(), state: 'available', variant: 'createSlots', startTime: sTime?.format("HH:mm").toString(), endTime: eTime?.format("HH:mm").toString(), onClick: ()=>{}})
         console.log(`${sTime}`)
     }
   

@@ -4,7 +4,7 @@ import BackButton from '../BackButton/BackButton'
 import Heading from '../Heading/Heading'
 import './Header.scss'
 export type HeaderProps = {
-    headingText: string
+    headingText: string | undefined
     backButton?: boolean
     backButtonLink: string
 }

@@ -19,6 +19,9 @@
     &_state_available{
         background-color: #E3E6EB;
         color: black;
+        &:hover{
+            background-color: #bfc1c7;
+        }
     }
 
     &_state_booked{
@@ -29,5 +32,33 @@
     &_state_chosen{
         background-color: #4668D7;
         color: #DCDCDC;
+        &:hover{
+            background-color: #3a57b4;
+        }
     }
+
+    &-Wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        
+    }
+
+    &-DeleteButton{
+        position: relative;
+        top: 12px;
+        left: 8px;
+        border-radius: 100px;
+        border: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        text-align: center;
+        background-color: #7474748a;
+        color: #c9c9c9;
+        cursor: pointer;
+        &:hover{
+            background-color: #494949;;
+        }
+    }
+
 }
