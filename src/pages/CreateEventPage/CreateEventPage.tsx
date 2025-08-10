@@ -2,16 +2,16 @@
 import Header from '../../components/Header/Header'
 
 import HCenteredLayout from '../../layouts/HCenteredLayout/HCenteredLayout'
-import {TextField, textFieldClasses } from '@mui/material'
+import {TextField } from '@mui/material'
 import './CreateEventPage.scss'
 import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection'
 import Button from '../../components/Button/Button'
 import { useCreateTimeSlotsStore } from '../../stores/CreateTimeSlotsStore'
-import { /*useEffect,*/ useEffect, useState } from 'react'
+import { /*useEffect,*/ useState } from 'react'
 import moment from 'moment'
 import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
-import { useTelegramAppUserStore } from '../../stores/AppTelegramUserStore'
-import { useInitDataStore } from '../../stores/InitDataStore'
+// import { useTelegramAppUserStore } from '../../stores/AppTelegramUserStore'
+// import { useInitDataStore } from '../../stores/InitDataStore'
 import { useForm} from 'react-hook-form'
 // import { on } from '@telegram-apps/sdk-react'
 
@@ -47,59 +47,59 @@ export default function CreateEventPage() {
   
   const timeSlotsList = useCreateTimeSlotsStore((state)=>state.timeSlots)
 
-  const [eventDate, setEventDate] = useState<moment.Moment | null>(null)
-  const [eventTitle, setEventTitle] = useState<string | null>("")
-  const [eventDescription, setEventDescription] = useState<string | null>("")
+  // const [eventDate, _] = useState<moment.Moment | null>(null)
+  // const [eventTitle, setEventTitle] = useState<string | null>("")
+  // const [eventDescription, setEventDescription] = useState<string | null>("")
  
   const [timeSlotsHelperText, setTimeSlotsHeplerText] = useState<string>("")
 
-  const appUser = useTelegramAppUserStore((state)=>state.user)
-  const initDataRaw = useInitDataStore((state)=>state.initData)
+  // const appUser = useTelegramAppUserStore((state)=>state.user)
+  // const initDataRaw = useInitDataStore((state)=>state.initData)
 
-  const sendData = (data: Event | undefined) =>{
+  // const sendData = (data: Event | undefined) =>{
         
 
-    fetch('http://localhost:3000/events', {
-      method: 'POST',
-      // mode: 'cors',
-      headers: {
-        Authorization: `tma ${initDataRaw}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data)
-    });
-  }
+  //   fetch('http://localhost:3000/events', {
+  //     method: 'POST',
+  //     // mode: 'cors',
+  //     headers: {
+  //       Authorization: `tma ${initDataRaw}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data)
+  //   });
+  // }
 
   // console.log("Now: " + moment().unix())
   // console.log("yes: " + moment("01/02/1970").unix())
 
   //ADD CHECKS FOR UNDEFINED VALUES
-  const composeEvent = () =>{
-    // useEffect(()=>{
-      //composeEvent()
-      if(eventDate&&eventTitle&&eventDescription){//Проверить, почему эти поля undefined приходят
-        console.log(eventDate + " " + eventTitle + " " + eventDescription)
-        if(appUser){
-          const event: Event = {
-            id: crypto.randomUUID(),
-            date: eventDate,
-            title: eventTitle,
-            description: eventDescription,
-            slots: timeSlotsList,
-            creator: appUser?.id
-          }
-        console.log(event)
-        return(event)
-        }
-        else console.log('appUser is not defined')
+  // const composeEvent = () =>{
+  //   // useEffect(()=>{
+  //     //composeEvent()
+  //     if(eventDate&&eventTitle&&eventDescription){//Проверить, почему эти поля undefined приходят
+  //       console.log(eventDate + " " + eventTitle + " " + eventDescription)
+  //       if(appUser){
+  //         const event: Event = {
+  //           id: crypto.randomUUID(),
+  //           date: eventDate,
+  //           title: eventTitle,
+  //           description: eventDescription,
+  //           slots: timeSlotsList,
+  //           creator: appUser?.id
+  //         }
+  //       console.log(event)
+  //       return(event)
+  //       }
+  //       else console.log('appUser is not defined')
         
-      }
+  //     }
       
         
-    // console.log('useEventPost')
-    // console.log(`InitData: ${appUser}`)
-    // },[])
-  }
+  //   // console.log('useEventPost')
+  //   // console.log(`InitData: ${appUser}`)
+  //   // },[])
+  // }
 
   function submitForm(data:any){
     // event.preventDefault()
@@ -161,7 +161,7 @@ export default function CreateEventPage() {
               
               /> */}
               <input type='date' className='CreateEventPage-DateInput DateInput'/>
-              <TextField {...register("title", {required: "Title is required"})} helperText={errors.title?.message} required error={!!errors?.title} label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}} />
+              <TextField {...register("title", {required: "Title is required"})} helperText={<>errors.title?.message</>} required error={!!errors?.title} label='Title' className='Form-Field' margin='normal' size='medium' fullWidth sx={{width: '310px'}} />
               <TextField {...register("description")}  error={!!errors?.description} label='Description...' className='Form-Field' margin='dense' multiline rows={5} fullWidth sx={{width: '310px'}} />
               </form>
               <TimeSlotsSection  helperText={timeSlotsHelperText} timeSlots={timeSlotsList} variant='createSlots'/>
