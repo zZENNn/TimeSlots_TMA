@@ -13,6 +13,7 @@ import { useCreateTimeSlotsStore } from '../../stores/CreateTimeSlotsStore'
 export type TimSlotsSectionProps = {
   timeSlots: TimeSlotProps[]
   variant: 'createSlots' |'bookSlots' 
+  helperText?: string
   //onChange: ()=>void
 }
 
@@ -90,6 +91,7 @@ export default function TimeSlotsSection(props: TimSlotsSectionProps) {
             
             
         </div>
+        <div className="TimeSlotsSection-HelperText HelperText">{props.helperText}</div>
     </div>
   )
 }
