@@ -1,4 +1,4 @@
-import {DatePicker} from '@mui/x-date-pickers'
+// import {DatePicker} from '@mui/x-date-pickers'
 import Header from '../../components/Header/Header'
 
 import HCenteredLayout from '../../layouts/HCenteredLayout/HCenteredLayout'
@@ -8,12 +8,12 @@ import TimeSlotsSection from '../../components/TimeSlotsSection/TimeSlotsSection
 import Button from '../../components/Button/Button'
 import { useCreateTimeSlotsStore } from '../../stores/CreateTimeSlotsStore'
 import { /*useEffect,*/ useEffect, useState } from 'react'
-import moment, { now } from 'moment'
+import moment from 'moment'
 import { TimeSlotProps } from '../../components/TimeSlot/TimeSlot'
 import { useTelegramAppUserStore } from '../../stores/AppTelegramUserStore'
 import { useInitDataStore } from '../../stores/InitDataStore'
-import { useForm, Controller} from 'react-hook-form'
-import { on } from '@telegram-apps/sdk-react'
+import { useForm} from 'react-hook-form'
+// import { on } from '@telegram-apps/sdk-react'
 
 export type Event = {
   id: string
@@ -33,10 +33,10 @@ export default function CreateEventPage() {
     formState:{
       errors,
     },
-    setError,
-    setFocus,
+    // setError,
+    // setFocus,
     handleSubmit,
-    control
+    // control
   } = useForm(
     {
       mode: "onBlur",
