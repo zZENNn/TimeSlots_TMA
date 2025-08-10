@@ -9,7 +9,7 @@ export type ButtonProps = {
   color: 'primary' | 'inverted'
   onClick?:
         | ((event: React.MouseEvent<HTMLButtonElement>) => void)
-  type: "submit" | "reset" | "button"
+  type?: "submit" | "reset" | "button"
         
 }
 
